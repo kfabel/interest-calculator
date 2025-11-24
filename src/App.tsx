@@ -19,6 +19,10 @@ function App() {
   const [investAmount, setInvestAmount] = useState<number>(0);
   const loader = new EnvLoader;
 
+  useEffect(() => {
+    fetchBankData();
+  }, []);
+
   const taxRate: number = Number(loader.get<number>('TAX', -1));
   
   const fetchBankData = async () => {
@@ -87,11 +91,10 @@ function App() {
   const showCalculateAll = () => {
     return (
       <>
-        <button type="button" onClick={startCalculation}>Haven't decided yet</button>
+        <button type="button" style={{marginTop: "36px"}} onClick={startCalculation}>Haven't decided yet</button>
       </>
     )
   }
-
 
   const displayCalculation = () => {
     if(!inCalculation)return;
@@ -109,14 +112,15 @@ function App() {
           </>
           )
         }
+        <button type="button" onClick={() => {
+            setInCalculation(false); 
+            setActiveBank(null); 
+            setShouldChooseBank(true);
+        }}>Back</button>
       </div>
     )
   }
-  
 
-  useEffect(() => {
-    fetchBankData();
-  }, []);
 
   return (
     <>

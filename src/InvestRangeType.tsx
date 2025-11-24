@@ -19,14 +19,12 @@ export default function InvestRangeType(opts: InvestRangeOpts) {
     const handleChange = () => {
         if (selfRef.current) {
             setCurrentValue(Number(selfRef.current.value));
-            // Calculate percentage for filled track
             const percentage = ((Number(selfRef.current.value) - opts.min) / (opts.max - opts.min)) * 100;
             selfRef.current.style.setProperty('--value', `${percentage}%`);
         }
         opts.onChange(selfRef);
     };
 
-    // Set initial percentage on mount
     useEffect(() => {
         if (selfRef.current) {
             const percentage = ((currentValue - opts.min) / (opts.max - opts.min)) * 100;
@@ -38,12 +36,12 @@ export default function InvestRangeType(opts: InvestRangeOpts) {
         <div className="invest-range">
             <label htmlFor={randId}>{opts.label}</label>
             <div style={{ marginBottom: '10px', position: "relative"}}>
-                <span>{opts.min}</span>
+                <span>{opts.min}Kč</span>
                 <span className="current-value" style={{ 
                     position: "absolute",
                     top: "-35px",
                     left: `${parseInt(selfRef.current?.value || '0')  / opts.max * (selfRef.current?.offsetWidth || 0)}px`
-                }}>{currentValue}</span>
+                }}>{currentValue}Kč</span>
                 <input 
                     ref={selfRef}
                     type="range" 
@@ -55,7 +53,7 @@ export default function InvestRangeType(opts: InvestRangeOpts) {
                     max={opts.max}
                     step={opts.step}
                 />
-                <span>{opts.max}</span>
+                <span>{opts.max}Kč</span>
             </div>
             
         </div>

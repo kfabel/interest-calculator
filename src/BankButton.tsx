@@ -8,7 +8,15 @@ type BankButtonOpts = {
 
 export default function BankButton(opts: BankButtonOpts) {
     return (
-        <button style={{ width: opts.width ? `${opts.width}px` : undefined }} key={opts.name} type="button" className="bank-btn" onClick={() => {opts.onClick(opts.name)}}>
+        <button 
+            style={{ 
+                width: opts.width ? `${opts.width}px` : undefined 
+            }} 
+            key={opts.name} 
+            type="button" 
+            className="bank-btn"
+             onClick={() => {opts.onClick(opts.name)}}
+        >
             <img src={opts.icon} alt={opts.name}  style={{
                 width: '100%',
                 height: '95px',
