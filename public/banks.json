@@ -1,0 +1,22 @@
+{
+    "Česká Spořitelna": {
+        "rate": 0.0185,
+        "min": 5000,
+        "icon": "logo-cs.webp"
+    },
+    "Moneta" : {
+        "rate": 0.032,
+        "min": 15000,
+        "icon": "moneta.svg"
+    },
+    "Komerční Banka": {
+        "rate": 0.03,
+        "min": 5000,
+        "icon": "kb.png"
+    },
+    "Air Bank": {
+        "rate": 0.027,
+        "min": 30000,
+        "icon": "ab.png"
+    }
+}
